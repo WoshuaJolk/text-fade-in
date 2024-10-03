@@ -1,0 +1,35 @@
+{
+  "name": "text-fade-in",
+  "version": "1.0.3",
+  "description": "A React component to beautifully fade in text by words or lines.",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "keywords": [
+    "react",
+    "text-fade-in",
+    "animation",
+    "text",
+    "component"
+  ],
+  "author": "Joshua Wolk",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woshuajolk/fade-in.git"
+  },
+  "dependencies": {
+    "text-fade-in": "^1.0.3"
+  },
+  "yalcSig": "6a7fddbb55fc7be681dc2d1692667375"
+}

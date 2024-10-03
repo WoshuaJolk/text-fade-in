@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "text-fade-in": {
+      "signature": "6a7fddbb55fc7be681dc2d1692667375",
+      "file": true,
+      "replaced": "^1.0.1"
+    }
+  }
+}
