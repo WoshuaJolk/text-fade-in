@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <div className="h-screen bg-black gap-1 flex flex-col px-10 py-40">
       <FadeIn linear className="w-[800px] mb-3">
-        FadeIn is an npm package that fades text in beautifully
+        FadeIn is an npm package that fades in text beautifully
       </FadeIn>
       <FadeIn linear lines>
-        Fade in any text word-by-word or line-by-line.
+        Fade in text word-by-word or line-by-line.
       </FadeIn>
       <FadeIn linear lines>
         Then linearize it by adding the linear prop.
@@ -91,7 +91,7 @@ export default function Home() {
         {isSmallScreen ? "Fade in text beautifully" : "FadeIn is an npm package that fades in text beautifully"}
       </FadeIn>
       <FadeIn className="text-center sm:text-left max-w-[300px] sm:max-w-[1000px] xl:ml-40 transition-all" linear lines>
-      {isSmallScreen ? "Fade in any text word-by-word or line-by-line. Then linearize it by adding the linear prop." : "Fade in any text word-by-word or line-by-line."}
+      {isSmallScreen ? "Fade in text word-by-word or line-by-line. Then linearize it by adding the linear prop." : "Fade in any text word-by-word or line-by-line."}
       </FadeIn>
       {isSmallScreen ? 
       <></> :
@@ -102,12 +102,12 @@ export default function Home() {
 
       {/* Code Panel */}
       {showCodePanel && (
-        <div className="absolute bottom-0 right-0 m-4 p-3 bg-black backdrop-blur bg-opacity-50 outline outline-neutral-800 text-neutral-400 text-xs rounded shadow-lg w-2/3 sm:w-1/2 max-w-[600px] max-h-[330px] h-1/3 sm:h-1/2 overflow-y-auto transform transition-all duration-700 translate-x-5 translate-y-5 opacity-0 animate-fade-in">
+        <div className="absolute bottom-0 right-0 m-4 p-3 bg-black backdrop-blur bg-opacity-50 outline outline-neutral-800 text-neutral-400 text-xs rounded shadow-lg w-1000 box-border sm:w-1/2 max-w-[600px] max-h-[330px] h-1/3 sm:h-1/2 overflow-y-auto transform transition-all duration-700 translate-x-5 translate-y-5 opacity-0 animate-fade-in">
           <pre className="whitespace-pre-wrap">
             <code>{codeString}</code>
           </pre>
           <div
-            className="absolute top-0 right-0 px-3 py-2 m-2 outline outline-neutral-100/20 transition-all rounded hover:bg-neutral-900 cursor-pointer"
+            className="absolute top-0 right-0 px-3 py-2 m-2 outline outline-neutral-800 transition-all rounded hover:bg-neutral-900 cursor-pointer"
             onClick={handleCopy}
           >
             {copySuccess ? 'Copied!' : 'Copy code'}

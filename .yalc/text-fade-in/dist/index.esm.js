@@ -53,21 +53,29 @@ var FadeIn = function FadeIn(_ref) {
     _ref$className = _ref.className,
     className = _ref$className === void 0 ? '' : _ref$className,
     _ref$style = _ref.style,
-    style = _ref$style === void 0 ? {} : _ref$style;
+    style = _ref$style === void 0 ? {} : _ref$style,
+    _ref$blur = _ref.blur,
+    blur = _ref$blur === void 0 ? '10px' : _ref$blur,
+    _ref$distance = _ref.distance,
+    distance = _ref$distance === void 0 ? '20px' : _ref$distance,
+    _ref$duration = _ref.duration,
+    duration = _ref$duration === void 0 ? '0.7s' : _ref$duration;
   React.useEffect(function () {
     var fadeElements = document.querySelectorAll('.fade-in .fade-element');
     fadeElements.forEach(function (element, index) {
       element.style.setProperty('--delay', "".concat(1 + index * 0.05, "s"));
     });
   }, [children]);
+  var fullText = React.Children.toArray(children).join(' ').replace(/\s+/g, ' ').trim();
   var fadeContainerStyle = _objectSpread2({
-    display: 'inline-block'
+    display: 'inline-block',
+    '--blur': blur,
+    '--distance': distance,
+    '--duration': duration
   }, style);
-
-  // Default text styles
   var defaultTextStyle = {};
 
-  // Header styling (for splitting by words)
+  // Linear-esque header styling
   var headerStyle = _defineProperty(_defineProperty(_defineProperty({
     fontSize: '56px',
     lineHeight: '62px',
@@ -76,7 +84,7 @@ var FadeIn = function FadeIn(_ref) {
     color: '#F7F8F8'
   }, "fontWeight", '500'), "fontFamily", 'Inter, sans-serif'), "letterSpacing", '-1.8px');
 
-  // Body styling (for splitting by lines)
+  // Linear-esque body styling
   var bodyStyle = {
     fontSize: '21px',
     lineHeight: '28px',
@@ -86,24 +94,19 @@ var FadeIn = function FadeIn(_ref) {
     fontFamily: 'Inter, sans-serif',
     letterSpacing: '-0.4px'
   };
-
-  // Determine the text styling based on props
   var textStyle = defaultTextStyle;
   if (linear) {
     textStyle = lines ? bodyStyle : headerStyle;
   }
   var fadeStyle = _objectSpread2({
-    opacity: 0,
-    filter: 'blur(10px)',
-    transform: 'translateY(20px)',
     animationName: 'fadeIn',
-    animationDuration: '0.7s',
+    animationDuration: 'var(--duration)',
     animationTimingFunction: 'ease-in-out',
     animationFillMode: 'forwards',
     animationDelay: 'var(--delay)',
     display: 'inline-block'
   }, textStyle);
-  var keyframesStyle = "\n    @keyframes fadeIn {\n      to {\n        opacity: 1;\n        filter: blur(0);\n        transform: translateY(0);\n      }\n    }\n  ";
+  var keyframesStyle = "\n  @keyframes fadeIn {\n    0% {\n      opacity: 0;\n      filter: blur(var(--blur));\n      transform: translateY(var(--distance));\n    }\n    100% {\n      opacity: 1;\n      filter: blur(0);\n      transform: translateY(0);\n    }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    .fade-element {\n      animation: none !important;\n    }\n  }\n";
   var splitText = function splitText() {
     if (lines) {
       // Map over the children directly
@@ -112,11 +115,12 @@ var FadeIn = function FadeIn(_ref) {
         return /*#__PURE__*/React.createElement("span", {
           key: index,
           className: "fade-element",
-          style: fadeStyle
+          style: fadeStyle,
+          "aria-hidden": "true"
         }, line, /*#__PURE__*/React.createElement("br", null));
       });
     } else {
-      // For word splitting, join all text and split by spaces
+      // The default is split-by-word, so we join the text and split by spaces
       var text = React.Children.toArray(children).join('');
       var words = text.split(' ').filter(function (word) {
         return word !== '';
@@ -125,14 +129,16 @@ var FadeIn = function FadeIn(_ref) {
         return /*#__PURE__*/React.createElement("span", {
           key: index,
           className: "fade-element",
-          style: fadeStyle
+          style: fadeStyle,
+          "aria-hidden": "true"
         }, word, "\xA0");
       });
     }
   };
   return /*#__PURE__*/React.createElement("div", {
     className: "fade-in ".concat(className),
-    style: fadeContainerStyle
+    style: fadeContainerStyle,
+    "aria-label": fullText
   }, /*#__PURE__*/React.createElement("style", null, keyframesStyle), splitText());
 };
 

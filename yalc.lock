@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "text-fade-in": {
-      "signature": "6a7fddbb55fc7be681dc2d1692667375",
+      "signature": "14e3ba5de79356cb95492f56266818de",
       "file": true,
       "replaced": "^1.0.1"
     }

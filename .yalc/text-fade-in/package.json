@@ -1,6 +1,6 @@
 {
   "name": "text-fade-in",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A React component to beautifully fade in text by words or lines.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -29,7 +29,7 @@
     "url": "https://github.com/woshuajolk/fade-in.git"
   },
   "dependencies": {
-    "text-fade-in": "^1.0.3"
+    "text-fade-in": "^1.0.4"
   },
-  "yalcSig": "6a7fddbb55fc7be681dc2d1692667375"
+  "yalcSig": "14e3ba5de79356cb95492f56266818de"
 }
