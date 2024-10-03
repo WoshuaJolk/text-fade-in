@@ -12,13 +12,13 @@ export default function Home() {
   return (
     <div className="h-screen bg-black gap-1 flex flex-col px-10 py-40">
       <FadeIn linear className="w-[1000px] mb-3">
-        Linear is a purpose-built tool for planning and building products
+        FadeIn is an npm package for adding awesome text effects
       </FadeIn>
       <FadeIn linear lines>
-        Meet the system for modern software development.
+        Fade in any text word-by-word or line-by-line.
       </FadeIn>
       <FadeIn linear lines>
-        Streamline issues, projects, and product roadmaps.
+        And linearize it by adding "linear".
       </FadeIn>
     </div>
   );
@@ -36,14 +36,14 @@ export default function Home() {
 
   return (
     <div className="h-screen bg-black gap-1 flex flex-col px-10 py-40 relative">
-      <FadeIn linear className="w-[1000px] mb-3">
-        Linear is a purpose-built tool for planning and building products
+      <FadeIn linear className="w-[800px] mb-3">
+        FadeIn is an npm package for adding awesome text effects
       </FadeIn>
       <FadeIn linear lines>
-        Meet the system for modern software development.
+        Fade in any text word-by-word or line-by-line.
       </FadeIn>
       <FadeIn linear lines>
-        Streamline issues, projects, and product roadmaps.
+        And linearize it by adding "linear".
       </FadeIn>
 
       {/* Code Panel */}
@@ -52,7 +52,7 @@ export default function Home() {
           <code>{codeString}</code>
         </pre>
         <div
-          className="absolute top-0 right-0 px-3 py-2 m-2 outline outline-neutral-800 transition-all rounded hover:bg-neutral-900 cursor-pointer"
+          className="absolute top-0 right-0 px-3 py-2 m-2 outline outline-neutral-100/20 transition-all rounded hover:bg-neutral-900 cursor-pointer"
           onClick={handleCopy}
         >
           {copySuccess ? 'Copied!' : 'Copy code'}
